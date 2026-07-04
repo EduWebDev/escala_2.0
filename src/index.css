@@ -1,0 +1,580 @@
+/* Index.jsx */
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+#root{
+    font-family: 'Poppins';
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+header{
+    background-color: #64c1a2;
+    color: #FFF;
+    
+    & .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    & :first-child{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        & img.logo{
+            width: 26px;
+        }
+
+        & h1{
+            font-size: 26px;
+        }
+    }
+}
+
+main{
+
+    & .container{
+        min-height: 100%;
+        padding: 10px 15px 50px 15px;
+
+    }
+}
+
+footer{
+    background-color: #64c1a2;
+    color: #FFF;
+
+    & .container{
+        text-align: center;
+        padding: 30px 15px;
+    }
+}
+
+.container{
+    margin: auto;
+    padding: 10px 15px;
+    max-width: 1300px;
+
+}
+
+@media screen and (max-width: 1536px) {
+    .meses{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+@media screen and (max-width: 1090px) {
+    .meses{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media screen and (max-width: 830px) {
+    .meses{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 540px) {
+    .meses{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+
+/* ================================================================================ */
+/* Estilização da Introdução da Página */
+.home-introducao {
+    margin: 20px;
+    max-width: 800px; /* Evita que o texto estique demais em telas muito grandes */
+}
+
+.home-introducao h2 {
+    color: #222;
+    font-size: 1.7rem;
+    margin-bottom: 4px;
+}
+
+.home-introducao .slogan {
+    color: #55c6a2; /* O mesmo tom verde do seu sistema */
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+}
+
+.home-introducao .descricao {
+    color: #64748b; /* Cinza slate suave e moderno */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+/* ========================================================================== */
+
+
+
+
+
+/* /////////////////////////////// */
+/* Calendario */
+/* ////////////////////////////// */
+
+.calendario{
+    & .calendarioCabecalho{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        user-select: none;
+
+        & .showAno{
+            display: flex;
+            gap: 7px;
+
+            h2{
+                color: #555;
+            }
+
+            button{
+                border: none;
+                padding: 0px 7px;
+                border-radius: 5px;
+                cursor: pointer;
+                background-color: #EEE;
+                border: 2px solid #FFF;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:hover{
+                    background-color: #f9f9f9;
+                    border: 2px solid #DDD;
+                }
+            }
+        }
+
+        & .configEscala{
+            background-color: #EEE;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            border-radius: 10px;
+            padding: 8px;
+            cursor: pointer;
+            border: 2px solid #FFF;
+
+
+            & >:first-child{
+                font-size: 12px;
+                color: #888;
+            }
+
+            & :nth-child(2){
+                font-weight: bold;
+                color: #555;
+            }
+
+            &:hover{
+                background-color: #f9f9f9;
+                border: 2px solid #DDD;
+            }
+        }
+    }
+
+
+    & .meses{
+        display: grid;
+        gap: 15px;
+        user-select: none;
+
+        & .mes{
+            border: 1px solid #DDD;
+            box-shadow: 0 0 5px #CCC;
+            padding: 20px 10px;
+            border-radius: 7px;
+
+            & .grupoTituloMes{
+                color: #64c1a2;
+                font-weight: bold;
+                padding-left: 7px;
+            }
+
+            & .grupoDiasSemanas{
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                place-items: center;
+                gap: 3px;
+                padding: 10px 0px 7px 0px;
+            }
+
+            & .grupoDiasMes{
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                place-items: center;
+                gap: 3px;
+                color: #222;
+                font-size: 14px;
+            }
+        }
+    }
+
+    & .diaBox{
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & .diaSemana{
+        font-weight: bold;
+        color: #DDD;
+    }
+
+    & .diaMes{
+        cursor: pointer;
+
+        @media (hover:hover){
+            &:hover{
+                /* border: 3px solid #50b595;
+                background-color: #49ebb8; */
+                border: 3px solid #5ea3b1;
+                background-color: #64b2c1;
+                font-weight: bold;
+                color: #555;
+                color: #FFF ;
+            }
+        }
+    }
+
+    & .diaTrabalho{
+        background-color: #e0fff5;
+        border: 1px solid #55c6a2;
+    }
+
+    & .diaHoje{
+        border: 2px solid rgb(233, 255, 33) !important;
+        box-shadow: 0 0 5px rgb(233, 255, 33);
+        /* border: 2px solid #b2c164 !important;
+        box-shadow: 0 0 5px #b2c164; */
+    }
+
+    & .diaSelecionado {
+        background-color: #7aecc6 ; /* Inverte a cor para o verde principal */
+        /* color: #FFF ; */
+        /* font-weight: bold; */
+        border: 1px solid #58a98e;
+        /* box-shadow: 0 2px 6px rgba(100, 193, 162, 0.4); */
+    }
+
+    /* Estilo para Sábados e Domingos */
+    & .diaFimDeSemana {
+        color: rgb(192, 91, 91);
+    }
+
+}
+
+/* ============================= Skla  ================================================== */
+
+/* /////////////////////////////// */
+/* MODAL FORM */
+/* ////////////////////////////// */
+
+.meuModal {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    width: 100%;
+    max-width: 350px;
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    margin: 100px auto;
+}
+
+/* Fundo Escurecido com Desfoque */
+.meuModal::backdrop {
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+
+/* Container que protege o conteúdo interno */
+.meuModal .modal-conteudo {
+    padding: 24px;
+}
+
+.meuModal .modal-cabecalho h3 {
+    margin: 0 0 20px 0;
+    color: #1e293b;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Campos de Entrada */
+.meuModal .grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.meuModal .grupo-input label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #475569;
+}
+
+.meuModal .grupo-input input {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #1e293b;
+    transition: all 0.2s ease;
+    background-color: #f8fafc;
+    font-family: inherit; /* Garante que o input de data use a mesma fonte */
+}
+
+/* Feedback visual de foco */
+.meuModal .grupo-input input:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    background-color: #ffffff;
+}
+
+/* Área de Botões */
+.meuModal .modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* Botões do Modal */
+.meuModal .modal-acoes button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.937rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.meuModal .btn-primario {
+    background-color: #10b981;
+    color: #ffffff;
+}
+
+.meuModal .btn-primario:hover {
+    background-color: #059669;
+}
+
+.meuModal .btn-secundario {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.meuModal .btn-secundario:hover {
+    background-color: #e2e8f0;
+    color: #334155;
+}
+
+
+
+
+/* =========================================================================== */
+/* Novas seções informativas do Skala */
+.skala-info-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #EEE;
+    padding-top: 30px;
+}
+
+.skala-info-container .info-card {
+    background-color: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.skala-info-container .info-card h3 {
+    color: #55c6a2; /* Cor padrão do seu sistema */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.skala-info-container .info-card p {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* =================================================================================== */
+
+
+
+/* =================================================================================== */
+/* Seção: Para quem é o sistema */
+
+.skala-publico-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 50px;
+    border-top: 1px solid #E2E8F0;
+    padding-top: 40px;
+}
+
+.skala-publico-container .publico-historia h2 {
+    color: #222;
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+}
+
+.skala-publico-container .publico-historia p {
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Grid de cartões do público alvo */
+.skala-publico-container .publico-alvo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.skala-publico-container .alvo-card {
+    display: flex;
+    align-items: start;
+    gap: 16px;
+    background-color: #FFF;
+    border: 1px solid #E2E8F0;
+    padding: 16px;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.skala-publico-container .alvo-card:hover {
+    transform: translateX(5px);
+    border-color: #55c6a2;
+}
+
+.skala-publico-container .alvo-icone {
+    font-size: 1.5rem;
+    background-color: #f0fff5;
+    padding: 8px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+.skala-publico-container .alvo-card h4 {
+    color: #1e293b;
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.skala-publico-container .alvo-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+/* Responsividade para telas menores (Tablets e Celulares) */
+@media screen and (max-width: 900px) {
+    .skala-publico-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+/* =================================================================================== */
+
+
+
+
+/* ====================================================================================== */
+/* Customização Avançada do Footer */
+footer {
+    background-color: #50b595; /* Um tom ligeiramente mais escuro do seu verde para dar contraste */
+    color: #FFF;
+    border-top: 4px solid #41967b;
+}
+
+footer .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 40px 15px 20px 15px !important;
+}
+
+footer .footer-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+footer .footer-coluna h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer .footer-coluna p {
+    font-size: 0.85rem;
+    color: #e0fff5;
+    max-width: 380px;
+    line-height: 1.5;
+}
+
+/* Botões Modernos do Rodapé */
+footer .btn-footer {
+    background-color: #FFF;
+    color: #50b595;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+footer .btn-footer:hover {
+    background-color: #f0fff5;
+    transform: translateY(-2px);
+}
+
+/* Faixa Preta de Créditos no Fundo */
+footer .footer-creditos {
+    background-color: #3f8e75;
+    text-align: center;
+    padding: 15px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .footer-creditos h5 {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #bbf7e3;
+}
+
+/* Responsividade do Rodapé */
+@media screen and (max-width: 650px) {
+    footer .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+/* ===================================================================================== */
