@@ -9,7 +9,7 @@ function Header() {
                 <div>
                     {/* <FaBars size={22}/> */}
                     <img className='logo' src={logoSkala} alt="logoSkala" />
-                    <h1>Skaladin</h1>
+                    <h1>Skala</h1>
                 </div>
                 <nav>
                     {/* <FaBars size={22}/> */}
